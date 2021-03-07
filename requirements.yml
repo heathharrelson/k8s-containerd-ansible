@@ -1,0 +1,8 @@
+---
+# used by the storage role to optionally export mount points over NFS
+- src: geerlingguy.nfs
+
+# used by Kubernetes
+- src: geerlingguy.swap
+- src: geerlingguy.containerd
+- src: geerlingguy.kubernetes

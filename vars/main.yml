@@ -1,0 +1,20 @@
+---
+# geerlingguy.swap options
+swap_file_state: absent
+
+# geerlingguy.containerd options
+containerd_package: containerd.io=1.4.3-1
+docker_apt_arch: arm64
+
+# geerlingguy.kubernetes options
+kubernetes_version: '1.20'
+kubernetes_packages:
+  - name: kubeadm=1.20.4-00
+    state: present
+  - name: kubelet=1.20.4-00
+    state: present
+  - name: kubectl=1.20.4-00
+    state: present
+kubernetes_allow_pods_on_master: false
+kubernetes_enable_web_ui: false
+kubernetes_apiserver_advertise_address: '10.1.1.1'

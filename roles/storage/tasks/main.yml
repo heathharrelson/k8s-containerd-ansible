@@ -1,0 +1,23 @@
+---
+- name: Add storage devices
+  block:
+    - name: Add mount point to /etc/fstab
+      mount:
+        path: '{{ item.path }}'
+        src: '{{ item.src }}'
+        fstype: '{{ item.fstype }}'
+        opts: '{{ item.opts | default("") }}'
+        state: mounted
+      with_items: '{{ storage_devices }}'
+
+    - name: Add mount point to /etc/exports
+      include_role:
+        name: geerlingguy.nfs
+      vars:
+        nfs_exports:
+          - '{{ outer_item.path }}    {{ outer_item.nfs_opts }}'
+      with_items: '{{ storage_devices }}'
+      loop_control:
+        loop_var: outer_item
+      when: (outer_item.nfs_opts | default("")) != ""
+  when: storage_devices is iterable and storage_devices | length > 0
