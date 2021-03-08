@@ -56,7 +56,7 @@ storage_devices:
     opts: defaults
 ```
 
-This is a simple wrapper around the [Ansible mount module](https://docs.ansible.com/ansible/latest/collections/ansible/posix/mount_module.html) and the [gerrlingguy.nfs](https://github.com/geerlingguy/ansible-role-nfs) role. See `inventory/host_vars` for additional examples.
+This is a simple wrapper around the [Ansible mount module](https://docs.ansible.com/ansible/latest/collections/ansible/posix/mount_module.html) and the [geerlingguy.nfs](https://github.com/geerlingguy/ansible-role-nfs) role. See `inventory/host_vars` for additional examples.
 
 ### Kubernetes
 
