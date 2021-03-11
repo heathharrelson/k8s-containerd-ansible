@@ -5,7 +5,6 @@
   roles:
     - role: prereqs
     - role: raspberrypi
-    - role: storage
 
 - hosts: all
   become: true

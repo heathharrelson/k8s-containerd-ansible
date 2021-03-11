@@ -42,22 +42,6 @@ $ ansible-playbook main.yml
 
 ## Customization
 
-### Storage
-
-The storage role sets up storage mounts and NFS exports using information from `host_vars` if a list of `storage_devices` is provided. For example, this sets up a mount for [Longhorn](https://longhorn.io/).
-
-```yaml
-# inventory/host_vars/192.168.4.44.yml
----
-storage_devices:
-  - path: /var/lib/longhorn
-    src: LABEL=longhorn
-    fstype: ext4
-    opts: defaults
-```
-
-This is a simple wrapper around the [Ansible mount module](https://docs.ansible.com/ansible/latest/collections/ansible/posix/mount_module.html) and the [geerlingguy.nfs](https://github.com/geerlingguy/ansible-role-nfs) role. See `inventory/host_vars` for additional examples.
-
 ### Kubernetes
 
 To configure the versions of containerd or the Kubernetes cluster, edit `vars/main.yml`.
